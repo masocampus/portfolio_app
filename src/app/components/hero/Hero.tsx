@@ -7,7 +7,7 @@ export function Hero() {
         <div className="md:w-3/5 mb-10 md:mb-0">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tight">
             안녕하세요, <br className="md:hidden" />
-            <span className="text-primary inline-block mt-1 md:mt-0">Masocampus</span>입니다
+            <span className="text-green-500 inline-block mt-1 md:mt-0">Masocampus</span>입니다
           </h1>
           <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0 text-foreground/80 leading-relaxed">
             혁신적인 웹 솔루션을 통해 비즈니스 문제를 해결하는 풀스택 개발자입니다.
