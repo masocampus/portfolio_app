@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0A2463;
+  --secondary: #3E92CC;
+  --accent: #D8315B;
+  --background: #FFFFFF;
+  --foreground: #1E1E24;
+  --muted: #EFEFEF;
+  --foreground-rgb: 30, 30, 36;
+  --background-rgb: 255, 255, 255;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-noto-sans-kr);
+  --font-heading: var(--font-inter);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4A7BF7;
+    --secondary: #255AA4;
+    --accent: #FF4B6E;
+    --background: #0F0F12;
+    --foreground: #F5F5F7;
+    --muted: #232328;
+    --foreground-rgb: 245, 245, 247;
+    --background-rgb: 15, 15, 18;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* 모바일 폰트 크기 최적화 */
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h3 {
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+/* 가독성 향상을 위한 텍스트 설정 */
+p, li, a {
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--primary);
+  transition: color 0.2s, opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* 높은 대비를 위한 텍스트 설정 */
+.high-contrast-text {
+  color: var(--foreground);
+  text-shadow: 0 0 1px rgba(var(--background-rgb), 0.1);
+}
+
+/* 텍스트 그림자 효과 */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+/* 강화된 텍스트 그림자 효과 */
+.text-shadow-strong {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 5px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.03em;
+}
+
+/* 부드러운 스크롤 효과 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 헤더 네비게이션 고정 */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background-color: rgba(var(--background-rgb), 0.8);
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 모바일 터치 영역 개선 */
+@media (max-width: 640px) {
+  button, 
+  [role="button"], 
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input, 
+  select, 
+  textarea {
+    font-size: 16px !important; /* iOS에서 확대 방지 */
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 더 좋은 링크 가독성을 위한 밑줄 */
+.underline-link {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.05em;
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* 스킬 바 애니메이션 */
+@keyframes skillBarFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-width);
+  }
+}
+
+.skill-bar {
+  position: relative;
+  width: 0;
+  animation: skillBarFill 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
